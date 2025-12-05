@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puerto Rico Family Trip - Dec 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding-bottom: 40px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .info-banner {
+            background: white;
+            margin: 20px 15px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .info-banner h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #667eea;
+        }
+        .info-item {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+        .info-item strong {
+            color: #555;
+        }
+        .day-card {
+            background: white;
+            margin: 15px;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .day-header {
+            background: #667eea;
+            color: white;
+            padding: 18px 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .day-content {
+            padding: 20px;
+        }
+        .flight-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 16px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .flight-box.return {
+            background: linear-gradient(135deg, #ff6b6b15 0%, #ee5a5215 100%);
+            border-left-color: #ff6b6b;
+        }
+        .flight-line {
+            font-size: 16px;
+            margin: 4px 0;
+        }
+        .flight-line strong {
+            color: #333;
+        }
+        .activity-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        .activity-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 16px;
+        }
+        .activity-list li:last-child {
+            border-bottom: none;
+        }
+        .time {
+            color: #667eea;
+            font-weight: 600;
+            display: inline-block;
+            min-width: 85px;
+        }
+        .nested-list {
+            list-style: disc;
+            margin: 8px 0 8px 25px;
+            font-size: 15px;
+        }
+        .nested-list li {
+            padding: 4px 0;
+            border: none;
+        }
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+        .tag-all {
+            background: #ffd93d;
+            color: #333;
+        }
+        .tag-adventure {
+            background: #ff6b6b;
+            color: white;
+        }
+        .tag-easy {
+            background: #4ecdc4;
+            color: white;
+        }
+        .tag-resort {
+            background: #95e1d3;
+            color: #333;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 16px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .info-box.warning {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .info-box.tip {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+        .info-box.food {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        .info-box h4 {
+            font-size: 17px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .info-box p, .info-box li {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        a:active {
+            color: #764ba2;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .cost-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px;
+        }
+        .cost-summary h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .cost-line {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 16px;
+        }
+        .section-title {
+            font-size: 20px;
+            margin: 30px 15px 15px 15px;
+            color: #333;
+            font-weight: 600;
+        }
+        .checklist {
+            background: white;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .checklist h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+        .checklist-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 16px;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin: 30px 15px 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .footer h2 {
+            font-size: 26px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .emoji {
+            font-size: 28px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌴 Puerto Rico Family Adventure</h1>
+        <div class="subtitle">December 6-13, 2025 • 18 People</div>
+    </div>
+
+    <div class="info-banner">
+        <h3>🚗 Group Info</h3>
+        <div class="info-item"><strong>Vehicles:</strong> 3 rentals (minivans/SUVs)</div>
+        <div class="info-item"><strong>Special needs:</strong> One on crutches, one 8 months pregnant</div>
+        <div class="info-item"><strong>Activities:</strong> Flexible split-group options</div>
+    </div>
+
+    <div class="info-box tip" style="margin: 20px 15px;">
+        <h3>📺 Puerto Rico Travel Videos</h3>
+        <p>Watch helpful videos about Puerto Rico destinations and tips:</p>
+        <p><a href="https://youtube.com/playlist?list=PLywuyrxn4FPDO_iOtrfZXs31ktlduuGgM&si=J77qUtjZfsiB0mSr" target="_blank" style="font-weight: 600;">🎬 Puerto Rico Travel Playlist on YouTube</a></p>
+        <p style="font-size: 14px; margin-top: 8px;">Great for getting excited about your trip or learning more about the places you'll visit!</p>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">SAT DEC 6 - ARRIVAL</div>
+        <div class="day-content">
+            <div class="flight-box">
+                <div class="flight-line"><strong>✈️ JetBlue B6 861</strong></div>
+                <div class="flight-line">Boston → San Juan</div>
+                <div class="flight-line">Departs: <strong>6:35 AM</strong> | Arrives: <strong>11:33 AM</strong></div>
+                <div class="flight-line">Duration: 3 hrs 58 mins</div>
+            </div>
+
+            <ul class="activity-list">
+                <li><span class="time">11:33 AM</span> Land at SJU</li>
+                <li><span class="time">~12:30 PM</span> Pick up 3 vehicles</li>
+                <li><span class="time">~1:00 PM</span> Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Kasalta+Bakery+San+Juan+PR">Kasalta Bakery</a> (San Juan)
+                    <ul class="nested-list">
+                        <li>Spanish/Caribbean fusion - sandwiches, pastries, seafood options (salmon, tuna) for pescatarian</li>
+                    </ul>
+                </li>
+                <li><span class="time">~2:00 PM</span> Drive to <a href="https://www.google.com/maps/search/?api=1&query=Palmas+del+Mar+Resort+Humacao+PR">Palmas del Mar Resort</a> (1 hr)
+                    <ul class="nested-list">
+                        <li>Stop for groceries at <a href="https://www.google.com/maps/search/?api=1&query=Pueblo+Supermarket+Humacao+PR">Pueblo</a> or <a href="https://www.google.com/maps/search/?api=1&query=Econo+Supermarket+Humacao+PR">Econo</a></li>
+                    </ul>
+                </li>
+                <li><span class="time">~3:30 PM</span> Check in, relax at pool/beach</li>
+                <li><span class="time">Evening</span> <span class="highlight">First family dinner at resort</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">SUN DEC 7 - BEACH DAY</div>
+        <div class="day-content">
+            <ul class="activity-list">
+                <li><span class="time">All Day</span> Relax at Palmas beach & pool</li>
+                <li><span class="time">Lunch</span> At resort</li>
+                <li><span class="time">Dinner</span> Split into smaller groups</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">MON DEC 8 - LA MARQUESA PARK</div>
+        <div class="day-content">
+            <div style="margin-bottom: 15px;">
+                <span class="tag tag-all">ALL 18 TOGETHER!</span>
+            </div>
+
+            <div class="info-box">
+                <p><strong>⭐ Best day for animal lovers!</strong> 100+ exotic tropical birds including parrots, golden pheasants, pink flamingos, and macaws in open-air aviary. Butterfly garden with monarchs!</p>
+                <p>Perfect for everyone - accessible for all ages & abilities!</p>
+            </div>
+
+            <ul class="activity-list">
+                <li><span class="time">8:30 AM</span> Depart for <a href="https://www.google.com/maps/search/?api=1&query=La+Marquesa+Forest+Park+Guaynabo+PR">La Marquesa Forest Park</a> (40 min)</li>
+                <li><span class="time">9:30 AM</span> Explore park (cable cars, butterflies, 100+ exotic birds, playgrounds!)</li>
+                <li><span class="time">2:30 PM</span> Lunch at <a href="https://www.google.com/maps/search/?api=1&query=El+Rancho+de+Apa+Guaynabo+PR">El Rancho de Apa</a> (famous lechón!)
+                    <ul class="nested-list">
+                        <li><strong>Pescatarian note:</strong> This is a pork-focused restaurant with limited seafood options. Alternative: stop at <a href="https://www.google.com/maps/search/?api=1&query=Luquillo+Kiosks+Puerto+Rico">Luquillo Kiosks</a> on the way back for excellent seafood choices</li>
+                    </ul>
+                </li>
+                <li><span class="time">4:00 PM</span> Return to resort</li>
+            </ul>
+
+            <div class="info-box tip">
+                <h4>💡 Cost & Tips</h4>
+                <p><strong>Cost:</strong> ~$12/person for park tickets</p>
+                <p><strong>Tip:</strong> Can buy tickets online at lamarquesapr.com or at entrance</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">TUE DEC 9 - EL YUNQUE</div>
+        <div class="day-content">
+            <div style="margin-bottom: 15px;">
+                <span class="tag tag-adventure">ADVENTURE</span>
+                <span class="tag tag-easy">EASY</span>
+                <span class="tag tag-resort">RESORT</span>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; font-size: 17px;">Adventure Group:</h4>
+            <ul class="activity-list">
+                <li><span class="time">8:00 AM</span> Depart for <a href="https://www.google.com/maps/search/?api=1&query=El+Yunque+National+Forest+Puerto+Rico">El Yunque</a> (45 min)</li>
+                <li>Visit: <a href="https://www.google.com/maps/search/?api=1&query=La+Coca+Falls+El+Yunque">La Coca Falls</a>, <a href="https://www.google.com/maps/search/?api=1&query=Yokahu+Tower+El+Yunque">Yokahu Tower</a>, <a href="https://www.google.com/maps/search/?api=1&query=La+Mina+Falls+Trail+El+Yunque">La Mina Falls Trail</a> (0.7 mi hike)</li>
+                <li><span class="time">2-3 PM</span> Return to resort</li>
+                <li><strong>Wildlife:</strong> Tropical birds (Puerto Rican parrots, tanagers, hummingbirds), tree frogs (coquí), lizards</li>
+                <li><strong>Views:</strong> Panoramic rainforest views from Yokahu Tower</li>
+            </ul>
+
+            <h4 style="margin: 15px 0 10px 0; font-size: 17px;">Easy Group:</h4>
+            <p style="margin: 10px 0;">Just La Coca Falls + Yokahu Tower, back by noon</p>
+
+            <h4 style="margin: 15px 0 10px 0; font-size: 17px;">Resort Group:</h4>
+            <p style="margin: 10px 0;">Beach/pool day at Palmas</p>
+
+            <div class="info-box tip">
+                <p><strong>Cost:</strong> FREE (national forest)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">WED DEC 10 - BEACH OR CATAMARAN</div>
+        <div class="day-content">
+            <h4 style="margin: 0 0 15px 0; font-size: 17px;">Option A: Beach Day</h4>
+            <ul class="activity-list">
+                <li><strong>Recommended:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Seven+Seas+Beach+Fajardo+PR">Seven Seas Beach</a> (20 min) - calm shallow waters, great for 3-year-old and pregnant mom, more wildlife viewing</li>
+                <li><strong>Alternative:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Balneario+Luquillo+Beach+Puerto+Rico">Luquillo Beach</a> (35 min) - stunning crescent beach with facilities</li>
+                <li>Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Luquillo+Kiosks+Puerto+Rico">Luquillo Kiosks</a> (60+ food stalls!)
+                    <ul class="nested-list">
+                        <li><strong>Excellent for pescatarian:</strong> Fresh fish, shrimp dishes, seafood fritters (alcapurrias with crab)</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="info-box warning" style="margin-top: 20px;">
+                <h4>🛥️ Option B: Private Catamaran (Highly Recommended!)</h4>
+                <p><strong>This is an incredible experience for your group!</strong></p>
+                <p>Full day sail to Culebra/Icacos</p>
+                <p><strong>Includes:</strong> Snorkeling, lunch, open bar, equipment</p>
+                <p><strong>Cost:</strong> $111-194/person (18 people)</p>
+                <p><strong>Departs:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Puerto+Del+Rey+Marina+Fajardo">Puerto del Rey Marina</a>, Fajardo</p>
+                <p><strong>Perfect for all abilities</strong> - those with limited mobility can relax on boat while others snorkel</p>
+                <p><strong>Wildlife:</strong> Amazing ocean views, tropical fish while snorkeling, possible sea turtle or dolphin sightings!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">THU DEC 11 - OLD SAN JUAN</div>
+        <div class="day-content">
+            <ul class="activity-list">
+                <li><span class="time">9:00 AM</span> Depart for <a href="https://www.google.com/maps/search/?api=1&query=Old+San+Juan+Puerto+Rico">Old San Juan</a> (1 hr)</li>
+                <li>Park at <a href="https://www.google.com/maps/search/?api=1&query=Dona+Fela+Parking+Old+San+Juan">Doña Fela Garage</a></li>
+                <li>Visit <a href="https://www.google.com/maps/search/?api=1&query=Castillo+San+Felipe+del+Morro+San+Juan">El Morro Fort</a> ($10/adult)
+                    <ul class="nested-list">
+                        <li><strong>Views:</strong> Stunning ocean overlooks and San Juan coastline</li>
+                        <li><strong>Wildlife:</strong> Wild iguanas often spotted on fort grounds!</li>
+                    </ul>
+                </li>
+                <li>Walk colorful streets, explore shops</li>
+                <li>Lunch (split 2-3 groups):
+                    <ul class="nested-list">
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Manolin+Old+San+Juan">Café Manolín</a> - 70+ year institution, famous shrimp mofongo, cod dishes, traditional Puerto Rican</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Berlin+Old+San+Juan">Café Berlin</a> - <strong>Best for pescatarian/vegetarian!</strong> Dedicated veg menu, cauliflower steak, vegan tacos, international cuisine</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Marmalade+Restaurant+Old+San+Juan">Marmalade</a> - upscale fine dining</li>
+                    </ul>
+                </li>
+                <li>Ice cream at <a href="https://www.google.com/maps/search/?api=1&query=Senor+Paleta+Old+San+Juan">Señor Paleta</a></li>
+                <li><span class="time">4:00 PM</span> Return to resort</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">FRI DEC 12 - BEACH & BIG DINNER</div>
+        <div class="day-content">
+            <ul class="activity-list">
+                <li><span class="time">Morning</span> Sleep in!</li>
+                <li><span class="time">Day</span> Final beach/pool day</li>
+                <li><span class="time">Afternoon</span> Pack for departure</li>
+                <li><span class="time">Evening</span> <span class="highlight">Special family dinner - all 18 together!</span></li>
+            </ul>
+
+            <div class="info-box food">
+                <h4>🍽️ Dinner Options</h4>
+                <p><strong>At Resort:</strong></p>
+                <ul class="nested-list">
+                    <li><a href="https://www.google.com/maps/search/?api=1&query=Olas+Restaurant+Palmas+del+Mar">Olas Restaurant</a> ($50-80/person) - seafood specialties, excellent for pescatarian</li>
+                    <li><a href="https://www.google.com/maps/search/?api=1&query=Blue+Hawaii+Restaurant+Palmas+del+Mar">Blue Hawaii</a> ($40-60/person) - Caribbean fusion</li>
+                </ul>
+                <p><strong>Worth the Drive:</strong></p>
+                <ul class="nested-list">
+                    <li><a href="https://www.google.com/maps/search/?api=1&query=Wilo+Eatery+Guaynabo+PR">Wilo Eatery</a> (30 min, $70-100/person) - contemporary Puerto Rican</li>
+                    <li><a href="https://www.google.com/maps/search/?api=1&query=Santaella+Restaurant+Santurce">Santaella</a> (40 min, $60-90/person) - trendy, excellent PR cuisine</li>
+                </ul>
+            </div>
+
+            <div class="info-box warning">
+                <p><strong>⚠️ Important:</strong> Gas up all 3 vehicles after dinner!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="day-card">
+        <div class="day-header">SAT DEC 13 - DEPARTURE</div>
+        <div class="day-content">
+            <div class="flight-box return">
+                <div class="flight-line"><strong>✈️ JetBlue B6 162</strong></div>
+                <div class="flight-line">San Juan → Boston</div>
+                <div class="flight-line">Departs: <strong>6:45 AM</strong> | Arrives: <strong>9:58 AM</strong></div>
+                <div class="flight-line">Duration: 4 hrs 13 mins</div>
+                <div class="flight-line" style="color: #d32f2f; margin-top: 8px;"><strong>⚠️ EARLY DEPARTURE!</strong></div>
+            </div>
+
+            <ul class="activity-list">
+                <li><span class="time">3:30 AM</span> Wake up (brutal!)</li>
+                <li><span class="time">4:00 AM</span> Leave for <a href="https://www.google.com/maps/search/?api=1&query=Luis+Munoz+Marin+International+Airport+SJU">SJU Airport</a></li>
+                <li><span class="time">6:45 AM</span> Takeoff</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="section-title">💰 Cost Summary</h2>
+    <div class="cost-summary">
+        <h3>Per Person Estimates</h3>
+        <div class="cost-line">
+            <span>La Marquesa Park</span>
+            <span>$12</span>
+        </div>
+        <div class="cost-line">
+            <span>El Yunque</span>
+            <span>FREE</span>
+        </div>
+        <div class="cost-line">
+            <span>Beaches</span>
+            <span>FREE</span>
+        </div>
+        <div class="cost-line">
+            <span>El Morro Fort</span>
+            <span>$10</span>
+        </div>
+        <div class="cost-line">
+            <span>Catamaran (optional)</span>
+            <span>$111-194</span>
+        </div>
+        <div class="cost-line">
+            <span>Friday Dinner</span>
+            <span>$50-100</span>
+        </div>
+        <div style="border-top: 2px solid rgba(255,255,255,0.3); margin-top: 15px; padding-top: 15px;">
+            <div class="cost-line" style="font-size: 18px; font-weight: 600;">
+                <span>Total (no catamaran)</span>
+                <span>$72-122</span>
+            </div>
+            <div class="cost-line" style="font-size: 18px; font-weight: 600;">
+                <span>Total (with catamaran)</span>
+                <span>$183-316</span>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">🍽️ Must-Try Foods</h2>
+    <div class="info-banner">
+        <ul class="nested-list">
+            <li><strong>Mofongo</strong> - Mashed plantains with garlic</li>
+            <li><strong>Tostones</strong> - Fried plantains</li>
+            <li><strong>Arroz con Gandules</strong> - Rice with pigeon peas</li>
+            <li><strong>Lechón</strong> - Roasted pork (at El Rancho de Apa!)</li>
+            <li><strong>Piña Coladas</strong> - Birthplace of the drink!</li>
+            <li><strong>Mallorcas</strong> - Sweet breakfast pastries</li>
+        </ul>
+    </div>
+
+    <h2 class="section-title">📋 Quick Reminders</h2>
+    <div class="checklist">
+        <div class="checklist-item">☐ Have 3 rental vehicles confirmed</div>
+        <div class="checklist-item">☐ Download offline Google Maps</div>
+        <div class="checklist-item">☐ Bring reef-safe sunscreen</div>
+        <div class="checklist-item">☐ Bring cash for kiosks</div>
+        <div class="checklist-item">☐ Create group coordination chat</div>
+        <div class="checklist-item">☐ Have credit cards ready for travel</div>
+        <div class="checklist-item">☐ Pack special needs items (crutches, pregnancy comfort)</div>
+    </div>
+
+    <div class="footer">
+        <h2>¡Buen Viaje!</h2>
+        <div class="emoji">🌴☀️🌊</div>
+        <p style="font-size: 16px; color: #666;">Have an Amazing Family Adventure!</p>
+        <p style="font-size: 14px; color: #999; margin-top: 10px;">18 people • Countless memories • December 2025</p>
+    </div>
+
+</body>
+</html>
