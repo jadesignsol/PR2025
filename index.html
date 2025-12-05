@@ -246,6 +246,42 @@
             font-size: 28px;
             margin: 10px 0;
         }
+        .nav-menu {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px;
+            margin: 0 -15px 20px -15px;
+        }
+        .nav-menu h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #667eea;
+            text-align: center;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .nav-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+        .nav-link:hover, .nav-link:active {
+            transform: scale(1.05);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -254,7 +290,18 @@
         <div class="subtitle">December 6-13, 2025 • 18 People</div>
     </div>
 
-    <div class="info-banner">
+    <div class="nav-menu">
+        <h3>Quick Navigation</h3>
+        <div class="nav-links">
+            <a href="#group-info" class="nav-link">Group Info</a>
+            <a href="#day-by-day" class="nav-link">Daily Schedule</a>
+            <a href="#costs" class="nav-link">Costs</a>
+            <a href="#foods" class="nav-link">Foods to Try</a>
+            <a href="#reminders" class="nav-link">Reminders</a>
+        </div>
+    </div>
+
+    <div class="info-banner" id="group-info">
         <h3>🚗 Group Info</h3>
         <div class="info-item"><strong>Vehicles:</strong> 3 rentals (minivans/SUVs)</div>
         <div class="info-item"><strong>Special needs:</strong> One on crutches, one 8 months pregnant</div>
@@ -269,7 +316,7 @@
         <p style="font-size: 14px; margin-top: 8px;">Great for getting excited about your trip or learning more about the places you'll visit!</p>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="day-by-day">
         <div class="day-header">SAT DEC 6 - ARRIVAL</div>
         <div class="day-content">
             <div class="flight-box">
@@ -475,9 +522,11 @@
         </div>
     </div>
 
-    <h2 class="section-title">💰 Cost Summary</h2>
+    <h2 class="section-title" id="costs">💰 Cost Summary</h2>
     <div class="cost-summary">
         <h3>Per Person Estimates</h3>
+        
+        <h4 style="margin: 20px 0 10px 0; font-size: 18px;">Activities:</h4>
         <div class="cost-line">
             <span>La Marquesa Park</span>
             <span>$12</span>
@@ -498,23 +547,69 @@
             <span>Catamaran (optional)</span>
             <span>$111-194</span>
         </div>
+
+        <h4 style="margin: 20px 0 10px 0; font-size: 18px;">Estimated Restaurant Costs:</h4>
         <div class="cost-line">
-            <span>Friday Dinner</span>
+            <span>Sat - Kasalta Bakery (lunch)</span>
+            <span>$15-25</span>
+        </div>
+        <div class="cost-line">
+            <span>Sat - Granitos Bartola</span>
+            <span>$5-10</span>
+        </div>
+        <div class="cost-line">
+            <span>Sat - First dinner at resort</span>
+            <span>$30-50</span>
+        </div>
+        <div class="cost-line">
+            <span>Sun - Beach day meals at resort</span>
+            <span>$50-80</span>
+        </div>
+        <div class="cost-line">
+            <span>Mon - El Rancho de Apa (lunch)</span>
+            <span>$20-30</span>
+        </div>
+        <div class="cost-line">
+            <span>Tue - Luquillo Kiosks or resort</span>
+            <span>$15-25</span>
+        </div>
+        <div class="cost-line">
+            <span>Wed - Beach day / Kiosks</span>
+            <span>$15-25</span>
+        </div>
+        <div class="cost-line">
+            <span>Wed - Catamaran lunch (if doing catamaran)</span>
+            <span>Included</span>
+        </div>
+        <div class="cost-line">
+            <span>Thu - Old San Juan lunch (El Jibarito/Raíces/Manolín)</span>
+            <span>$20-35</span>
+        </div>
+        <div class="cost-line">
+            <span>Fri - Big farewell dinner</span>
             <span>$50-100</span>
         </div>
-        <div style="border-top: 2px solid rgba(255,255,255,0.3); margin-top: 15px; padding-top: 15px;">
+        <div class="cost-line" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.3);">
+            <span><strong>Total Food (7 days)</strong></span>
+            <span><strong>$215-360</strong></span>
+        </div>
+
+        <div style="border-top: 2px solid rgba(255,255,255,0.3); margin-top: 20px; padding-top: 20px;">
+            <h4 style="font-size: 18px; margin-bottom: 15px;">Grand Totals Per Person:</h4>
             <div class="cost-line" style="font-size: 18px; font-weight: 600;">
-                <span>Total (no catamaran)</span>
-                <span>$72-122</span>
+                <span>Activities + Food (no catamaran)</span>
+                <span>$237-382</span>
             </div>
             <div class="cost-line" style="font-size: 18px; font-weight: 600;">
-                <span>Total (with catamaran)</span>
-                <span>$183-316</span>
+                <span>Activities + Food (with catamaran)</span>
+                <span>$348-576</span>
             </div>
         </div>
+        
+        <p style="font-size: 14px; margin-top: 15px; opacity: 0.9;">💡 Note: Does not include groceries, snacks, drinks, tips, or other miscellaneous expenses. Add ~$100-150/person for those extras.</p>
     </div>
 
-    <h2 class="section-title">🍽️ Must-Try Foods</h2>
+    <h2 class="section-title" id="foods">🍽️ Must-Try Foods</h2>
     <div class="info-banner">
         <ul class="nested-list">
             <li><strong>Mofongo</strong> - Mashed plantains with garlic</li>
@@ -528,7 +623,7 @@
         </ul>
     </div>
 
-    <h2 class="section-title">📋 Quick Reminders</h2>
+    <h2 class="section-title" id="reminders">📋 Quick Reminders</h2>
     <div class="checklist">
         <div class="checklist-item" style="background-color: #ffe6e6; font-weight: 600;">⚠️ PEANUT ALLERGY in group - always check ingredients when ordering</div>
         <div class="checklist-item">☐ Have 3 rental vehicles confirmed</div>
