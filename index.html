@@ -16,6 +16,145 @@
             color: #333;
             background-color: #f5f5f5;
             padding-bottom: 40px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #0f0f0f;
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        body.dark-mode .info-banner,
+        body.dark-mode .day-card,
+        body.dark-mode .checklist,
+        body.dark-mode .footer {
+            background: #1a1a1a;
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode .info-banner h3,
+        body.dark-mode .checklist h3,
+        body.dark-mode .footer h2 {
+            color: #a5b4fc;
+        }
+        
+        body.dark-mode .info-item strong,
+        body.dark-mode .info-box h4,
+        body.dark-mode h4 {
+            color: #e5e5e5;
+        }
+        
+        body.dark-mode .day-header {
+            background: #667eea;
+            color: #ffffff;
+        }
+        
+        body.dark-mode .activity-list li,
+        body.dark-mode .checklist-item {
+            border-bottom-color: #333;
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode .time {
+            color: #a5b4fc;
+        }
+        
+        body.dark-mode .info-box {
+            background: #262626;
+            border-left-color: #a5b4fc;
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode .info-box.warning {
+            background: #2d2410;
+            border-left-color: #fbbf24;
+            color: #fef3c7;
+        }
+        
+        body.dark-mode .info-box.tip {
+            background: #0c1e33;
+            border-left-color: #60a5fa;
+            color: #dbeafe;
+        }
+        
+        body.dark-mode .info-box.food {
+            background: #0f2514;
+            border-left-color: #34d399;
+            color: #d1fae5;
+        }
+        
+        body.dark-mode .flight-box {
+            background: #1e1b4b;
+            color: #e0e7ff;
+        }
+        
+        body.dark-mode .flight-box.return {
+            background: #450a0a;
+            color: #fecaca;
+        }
+        
+        body.dark-mode .flight-line strong {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .highlight {
+            background: #854d0e;
+            color: #fef3c7;
+        }
+        
+        body.dark-mode a {
+            color: #93c5fd;
+        }
+        
+        body.dark-mode a:active {
+            color: #c4b5fd;
+        }
+        
+        body.dark-mode .section-title {
+            color: #f5f5f5;
+        }
+        
+        body.dark-mode .tag {
+            color: #000;
+        }
+        
+        body.dark-mode .nested-list li {
+            color: #f5f5f5;
+        }
+        
+        /* Dark Mode Toggle Button */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .dark-mode-toggle:active {
+            transform: scale(0.95);
+        }
+        
+        body.dark-mode .dark-mode-toggle {
+            background: #fbbf24;
         }
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -186,23 +325,6 @@
             border-radius: 4px;
             font-weight: 500;
         }
-        .cost-summary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 15px;
-        }
-        .cost-summary h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        .cost-line {
-            display: flex;
-            justify-content: space-between;
-            margin: 8px 0;
-            font-size: 16px;
-        }
         .section-title {
             font-size: 20px;
             margin: 30px 15px 15px 15px;
@@ -246,62 +368,40 @@
             font-size: 28px;
             margin: 10px 0;
         }
-        .nav-menu {
-            position: sticky;
-            top: 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            padding: 15px;
-            margin: 0 -15px 20px -15px;
-        }
-        .nav-menu h3 {
-            font-size: 16px;
-            margin-bottom: 12px;
-            color: #667eea;
-            text-align: center;
-        }
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-        .nav-link {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-        .nav-link:hover, .nav-link:active {
-            transform: scale(1.05);
-            color: white;
-        }
     </style>
 </head>
 <body>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌙</button>
+    
+    <script>
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.dark-mode-toggle').textContent = '☀️';
+        }
+        
+        function toggleDarkMode() {
+            const body = document.body;
+            const toggle = document.querySelector('.dark-mode-toggle');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                toggle.textContent = '☀️';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                toggle.textContent = '🌙';
+                localStorage.setItem('darkMode', null);
+            }
+        }
+    </script>
+    
     <div class="header">
         <h1>🌴 Puerto Rico Family Adventure</h1>
         <div class="subtitle">December 6-13, 2025 • 18 People</div>
     </div>
 
-    <div class="nav-menu">
-        <h3>Quick Navigation</h3>
-        <div class="nav-links">
-            <a href="#group-info" class="nav-link">Group Info</a>
-            <a href="#day-by-day" class="nav-link">Daily Schedule</a>
-            <a href="#costs" class="nav-link">Costs</a>
-            <a href="#foods" class="nav-link">Foods to Try</a>
-            <a href="#reminders" class="nav-link">Reminders</a>
-        </div>
-    </div>
-
-    <div class="info-banner" id="group-info">
+    <div class="info-banner">
         <h3>🚗 Group Info</h3>
         <div class="info-item"><strong>Vehicles:</strong> 3 rentals (minivans/SUVs)</div>
         <div class="info-item"><strong>Special needs:</strong> One on crutches, one 8 months pregnant</div>
@@ -309,14 +409,7 @@
         <div class="info-item" style="color: #d32f2f; font-weight: 600; margin-top: 10px;">⚠️ <strong>ALLERGY ALERT:</strong> One person has a peanut allergy - everyone be aware when ordering food!</div>
     </div>
 
-    <div class="info-box tip" style="margin: 20px 15px;">
-        <h3>📺 Puerto Rico Travel Videos</h3>
-        <p>Watch helpful videos about Puerto Rico destinations and tips:</p>
-        <p><a href="https://youtube.com/playlist?list=PLywuyrxn4FPDO_iOtrfZXs31ktlduuGgM&si=J77qUtjZfsiB0mSr" target="_blank" style="font-weight: 600;">🎬 Puerto Rico Travel Playlist on YouTube</a></p>
-        <p style="font-size: 14px; margin-top: 8px;">Great for getting excited about your trip or learning more about the places you'll visit!</p>
-    </div>
-
-    <div class="day-card" id="day-by-day">
+    <div class="day-card">
         <div class="day-header">SAT DEC 6 - ARRIVAL</div>
         <div class="day-content">
             <div class="flight-box">
@@ -331,32 +424,24 @@
                 <p><strong>Enterprise is OFF-AIRPORT - requires shuttle!</strong></p>
                 <p><strong>Step-by-step:</strong></p>
                 <ol style="margin: 10px 0 10px 20px; line-height: 1.8;">
-                    <li>After baggage claim, exit the terminal to Ground Transportation area</li>
-                    <li>Look for <strong>"Rental Car Shuttles"</strong> signs - usually outside near curb</li>
-                    <li>Find the <strong>Enterprise shuttle</strong> (green/white bus with Enterprise logo)</li>
-                    <li>Shuttles run every 10-15 minutes</li>
-                    <li>5-10 minute ride to Enterprise facility</li>
-                    <li><strong>3 people with reservations</strong> go to counter (bring driver's licenses, credit cards, confirmation numbers)</li>
-                    <li>Everyone else can wait in shuttle or facility while paperwork is done</li>
+                    <li>After baggage claim, exit to Ground Transportation area</li>
+                    <li>Look for <strong>"Rental Car Shuttles"</strong> signs</li>
+                    <li>Find the <strong>Enterprise shuttle</strong> (green/white bus)</li>
+                    <li>Shuttles run every 10-15 minutes, 5-10 min ride</li>
+                    <li>3 people with reservations go to counter</li>
                     <li>Inspect vehicles before leaving lot</li>
                 </ol>
                 <p><strong>⏱️ Allow 45-60 minutes total</strong> from landing to leaving with vehicles</p>
-                <p><strong>💡 Tip:</strong> Assign one person per vehicle to handle paperwork to speed things up!</p>
             </div>
 
             <ul class="activity-list">
                 <li><span class="time">11:33 AM</span> Land at SJU</li>
                 <li><span class="time">~12:30 PM</span> Leave Enterprise with 3 vehicles</li>
-                <li><span class="time">~1:00 PM</span> Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Kasalta+Bakery+San+Juan+PR">Kasalta Bakery</a> (San Juan)
+                <li><span class="time">~1:00 PM</span> Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Kasalta+Bakery+San+Juan+PR">Kasalta Bakery</a> (San Juan)</li>
+                <li><span class="time">~2:00 PM</span> Drive to Park Royal Homestay Club Cala (1 hr)
                     <ul class="nested-list">
-                        <li>Spanish/Caribbean fusion - sandwiches, pastries, seafood options (salmon, tuna) for pescatarian</li>
-                    </ul>
-                </li>
-                <li><span class="time">~2:00 PM</span> Drive to <a href="https://www.google.com/maps/search/?api=1&query=Park+Royal+Homestay+Club+Cala+270+Harbour+Drive+Humacao+PR">Park Royal Homestay Club Cala</a> (1 hr)
-                    <ul class="nested-list">
-                        <li>270 Harbour Drive, Suite 1, Humacao, PR 00791</li>
-                        <li><strong>MUST-STOP:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Fabrica+de+Granos+Humacao+Calle+Bartola+Rodriguez+Santana">Granitos Bartola</a> (Calle Bartola Rodríguez Santana, Barrio Patagonia, Humacao) - Famous granitos only found in Humacao! Rice flour fritters stuffed with cheese. Hours: Mon-Fri 7am-6pm, Sat-Sun 7am-4pm</li>
-                        <li>Stop for groceries: <a href="https://www.google.com/maps/search/?api=1&query=Walmart+Supercenter+Humacao+PR">Walmart Supercenter</a>, <a href="https://www.google.com/maps/search/?api=1&query=Pueblo+Supermarket+Humacao+PR">Pueblo</a>, or <a href="https://www.google.com/maps/search/?api=1&query=Econo+Supermarket+Humacao+PR">Econo</a></li>
+                        <li><strong>MUST-STOP:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Fabrica+de+Granos+Humacao">Granitos Bartola</a> - Famous rice flour fritters!</li>
+                        <li>Grocery stop: Walmart, Pueblo, or Econo in Humacao</li>
                     </ul>
                 </li>
                 <li><span class="time">~3:30 PM</span> Check in, relax at pool/beach</li>
@@ -371,38 +456,50 @@
             <ul class="activity-list">
                 <li><span class="time">All Day</span> Relax at Park Royal beach & pool</li>
                 <li><span class="time">Lunch</span> At resort</li>
-                <li><span class="time">Dinner</span> Split into smaller groups</li>
+                <li><span class="time">Dinner</span> Split into smaller groups or at resort</li>
             </ul>
         </div>
     </div>
 
     <div class="day-card">
-        <div class="day-header">MON DEC 8 - LA MARQUESA PARK</div>
+        <div class="day-header">MON DEC 8 - LA MARQUESA PARK & PIÑONES BEACH</div>
         <div class="day-content">
             <div style="margin-bottom: 15px;">
                 <span class="tag tag-all">ALL 18 TOGETHER!</span>
             </div>
 
             <div class="info-box">
-                <p><strong>⭐ Best day for animal lovers!</strong> 100+ exotic tropical birds including parrots, golden pheasants, pink flamingos, and macaws in open-air aviary. Butterfly garden with monarchs!</p>
+                <p><strong>⭐ Best day for animal lovers!</strong> 100+ exotic tropical birds including parrots, golden pheasants, pink flamingos, and macaws. Butterfly garden with monarchs!</p>
                 <p>Perfect for everyone - accessible for all ages & abilities!</p>
             </div>
 
             <ul class="activity-list">
                 <li><span class="time">8:30 AM</span> Depart for <a href="https://www.google.com/maps/search/?api=1&query=La+Marquesa+Forest+Park+Guaynabo+PR">La Marquesa Forest Park</a> (40 min)</li>
-                <li><span class="time">9:30 AM</span> Explore park (cable cars, butterflies, 100+ exotic birds, playgrounds!)</li>
-                <li><span class="time">2:30 PM</span> Lunch at <a href="https://www.google.com/maps/search/?api=1&query=El+Rancho+de+Apa+Guaynabo+PR">El Rancho de Apa</a> (famous lechón!)
-                    <ul class="nested-list">
-                        <li><strong>Pescatarian note:</strong> This is a pork-focused restaurant with limited seafood options. Alternative: stop at <a href="https://www.google.com/maps/search/?api=1&query=Luquillo+Kiosks+Puerto+Rico">Luquillo Kiosks</a> on the way back for excellent seafood choices</li>
-                    </ul>
-                </li>
-                <li><span class="time">4:00 PM</span> Return to resort</li>
+                <li><span class="time">9:30 AM - 12:30 PM</span> Explore park (cable cars, butterflies, 100+ exotic birds, playgrounds!)</li>
             </ul>
 
             <div class="info-box tip">
+                <h4>🍽️ Two Great Options for Lunch + Beach:</h4>
+                <p><strong>OPTION A - Carmín Restaurant + Piñones Beach</strong> (Recommended for authentic experience)</p>
+                <ul style="margin: 8px 0 8px 20px; line-height: 1.8;">
+                    <li><strong>Drive:</strong> 30-35 min from La Marquesa</li>
+                    <li><strong>Lunch:</strong> <a href="https://maps.app.goo.gl/gNcSvnJe7efzXGin8">Carmín Restaurant</a> (787-791-6464) - Fresh seafood, beachside dining, $15-25/person</li>
+                    <li><strong>Beach:</strong> La Pocita de Piñones, Piñones Boardwalk - authentic coastal experience</li>
+                    <li><strong>Return:</strong> Back at resort by 3:40 PM</li>
+                </ul>
+                <p><strong>OPTION B - Bebo's Café + Isla Verde Beach</strong> (Closer, convenient)</p>
+                <ul style="margin: 8px 0 8px 20px; line-height: 1.8;">
+                    <li><strong>Drive:</strong> 15-20 min from La Marquesa</li>
+                    <li><strong>Lunch:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Bebo+Cafe+Calle+Loiza+San+Juan">Bebo's Café</a> (787-726-5700) - Huge portions, mofongo, $8-15/person</li>
+                    <li><strong>Beach:</strong> Isla Verde Beach (5-10 min walk from restaurant) - beautiful urban beach</li>
+                    <li><strong>Return:</strong> Back at resort by 3:30 PM</li>
+                </ul>
+            </div>
+
+            <div class="info-box tip">
                 <h4>💡 Cost & Tips</h4>
-                <p><strong>Cost:</strong> ~$12/person for park tickets</p>
-                <p><strong>Tip:</strong> Can buy tickets online at lamarquesapr.com or at entrance</p>
+                <p><strong>La Marquesa:</strong> ~$12/person | Buy tickets at lamarquesapr.com or entrance</p>
+                <p><strong>Lunch:</strong> Call ahead for reservation - mention group of 18, special needs, peanut allergy</p>
             </div>
         </div>
     </div>
@@ -419,10 +516,8 @@
             <h4 style="margin: 15px 0 10px 0; font-size: 17px;">Adventure Group:</h4>
             <ul class="activity-list">
                 <li><span class="time">8:00 AM</span> Depart for <a href="https://www.google.com/maps/search/?api=1&query=El+Yunque+National+Forest+Puerto+Rico">El Yunque</a> (45 min)</li>
-                <li>Visit: <a href="https://www.google.com/maps/search/?api=1&query=La+Coca+Falls+El+Yunque">La Coca Falls</a>, <a href="https://www.google.com/maps/search/?api=1&query=Yokahu+Tower+El+Yunque">Yokahu Tower</a>, <a href="https://www.google.com/maps/search/?api=1&query=La+Mina+Falls+Trail+El+Yunque">La Mina Falls Trail</a> (0.7 mi hike)</li>
+                <li>Visit: La Coca Falls, Yokahu Tower, La Mina Falls Trail (0.7 mi hike)</li>
                 <li><span class="time">2-3 PM</span> Return to resort</li>
-                <li><strong>Wildlife:</strong> Tropical birds (Puerto Rican parrots, tanagers, hummingbirds), tree frogs (coquí), lizards</li>
-                <li><strong>Views:</strong> Panoramic rainforest views from Yokahu Tower</li>
             </ul>
 
             <h4 style="margin: 15px 0 10px 0; font-size: 17px;">Easy Group:</h4>
@@ -442,24 +537,18 @@
         <div class="day-content">
             <h4 style="margin: 0 0 15px 0; font-size: 17px;">Option A: Beach Day</h4>
             <ul class="activity-list">
-                <li><strong>Recommended:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Seven+Seas+Beach+Fajardo+PR">Seven Seas Beach</a> (20 min) - calm shallow waters, great for 3-year-old and pregnant mom, more wildlife viewing</li>
-                <li><strong>Alternative:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Balneario+Luquillo+Beach+Puerto+Rico">Luquillo Beach</a> (35 min) - stunning crescent beach with facilities</li>
-                <li>Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Luquillo+Kiosks+Puerto+Rico">Luquillo Kiosks</a> (60+ food stalls!)
-                    <ul class="nested-list">
-                        <li><strong>Excellent for pescatarian:</strong> Fresh fish, shrimp dishes, seafood fritters (alcapurrias with crab)</li>
-                    </ul>
-                </li>
+                <li><strong>Recommended:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Seven+Seas+Beach+Fajardo+PR">Seven Seas Beach</a> (20 min)</li>
+                <li><strong>Alternative:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Balneario+Luquillo+Beach+Puerto+Rico">Luquillo Beach</a> (35 min)</li>
+                <li>Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Luquillo+Kiosks+Puerto+Rico">Luquillo Kiosks</a> (60+ food stalls!)</li>
             </ul>
 
             <div class="info-box warning" style="margin-top: 20px;">
                 <h4>🛥️ Option B: Private Catamaran (Highly Recommended!)</h4>
-                <p><strong>This is an incredible experience for your group!</strong></p>
-                <p>Full day sail to Culebra/Icacos</p>
+                <p><strong>Full day sail to Culebra/Icacos</strong></p>
                 <p><strong>Includes:</strong> Snorkeling, lunch, open bar, equipment</p>
                 <p><strong>Cost:</strong> $111-194/person (18 people)</p>
-                <p><strong>Departs:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Puerto+Del+Rey+Marina+Fajardo">Puerto del Rey Marina</a>, Fajardo</p>
-                <p><strong>Perfect for all abilities</strong> - those with limited mobility can relax on boat while others snorkel</p>
-                <p><strong>Wildlife:</strong> Amazing ocean views, tropical fish while snorkeling, possible sea turtle or dolphin sightings!</p>
+                <p><strong>Departs:</strong> Puerto del Rey Marina, Fajardo</p>
+                <p><strong>Perfect for all abilities</strong> - those with limited mobility can relax on boat</p>
             </div>
         </div>
     </div>
@@ -469,24 +558,18 @@
         <div class="day-content">
             <ul class="activity-list">
                 <li><span class="time">9:00 AM</span> Depart for <a href="https://www.google.com/maps/search/?api=1&query=Old+San+Juan+Puerto+Rico">Old San Juan</a> (1 hr)</li>
-                <li>Park at <a href="https://www.google.com/maps/search/?api=1&query=Dona+Fela+Parking+Old+San+Juan">Doña Fela Garage</a></li>
-                <li>Visit <a href="https://www.google.com/maps/search/?api=1&query=Castillo+San+Felipe+del+Morro+San+Juan">El Morro Fort</a> ($10/adult)
-                    <ul class="nested-list">
-                        <li><strong>Views:</strong> Stunning ocean overlooks and San Juan coastline</li>
-                        <li><strong>Wildlife:</strong> Wild iguanas often spotted on fort grounds!</li>
-                    </ul>
-                </li>
+                <li>Park at Doña Fela Garage</li>
+                <li>Visit <a href="https://www.google.com/maps/search/?api=1&query=Castillo+San+Felipe+del+Morro+San+Juan">El Morro Fort</a> ($10/adult)</li>
                 <li>Walk colorful streets, explore shops</li>
                 <li>Lunch (split 2-3 groups):
                     <ul class="nested-list">
-                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Manolin+Old+San+Juan">Café Manolín</a> - 70+ year institution, famous shrimp mofongo, cod dishes, traditional Puerto Rican</li>
-                        <li><a href="https://maps.app.goo.gl/eL4HxCwUsDpFisq58">El Jibarito</a> - <strong>Group favorite!</strong> Family-owned since 1977, famous fried red snapper, authentic comida criolla, has pasteles!</li>
-                        <li><a href="https://maps.app.goo.gl/qkjPiZxcrg39qeDs7">Raíces</a> - <strong>Group favorite!</strong> Opened 2006, legendary mofongo, Chuletas Can Can (huge pork chop), vibrant decor</li>
-                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Berlin+Old+San+Juan">Café Berlin</a> - <strong>Best for pescatarian/vegetarian!</strong> Dedicated veg menu, cauliflower steak, vegan tacos, international cuisine</li>
-                        <li><a href="https://www.google.com/maps/search/?api=1&query=Marmalade+Restaurant+Old+San+Juan">Marmalade</a> - upscale fine dining</li>
+                        <li><a href="https://maps.app.goo.gl/eL4HxCwUsDpFisq58">El Jibarito</a> - Family-owned, famous fried red snapper</li>
+                        <li><a href="https://maps.app.goo.gl/qkjPiZxcrg39qeDs7">Raíces</a> - Legendary mofongo, Chuletas Can Can</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Manolin+Old+San+Juan">Café Manolín</a> - 70+ year institution</li>
+                        <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Berlin+Old+San+Juan">Café Berlin</a> - Best for pescatarian/vegetarian!</li>
                     </ul>
                 </li>
-                <li>Ice cream at <a href="https://www.google.com/maps/search/?api=1&query=Senor+Paleta+Old+San+Juan">Señor Paleta</a></li>
+                <li>Ice cream at Señor Paleta</li>
                 <li><span class="time">4:00 PM</span> Return to resort</li>
             </ul>
         </div>
@@ -504,21 +587,16 @@
 
             <div class="info-box food">
                 <h4>🍽️ Dinner Options</h4>
-                <p><strong>Near Resort (Palmas del Mar area):</strong></p>
+                <p><strong>Make reservation ahead!</strong></p>
                 <ul class="nested-list">
-                    <li><a href="https://www.google.com/maps/search/?api=1&query=Olas+Restaurant+Palmas+del+Mar">Olas Restaurant</a> ($50-80/person) - seafood specialties, excellent for pescatarian</li>
-                    <li><a href="https://www.google.com/maps/search/?api=1&query=Blue+Hawaii+Restaurant+Palmas+del+Mar">Blue Hawaii</a> ($40-60/person) - Caribbean fusion</li>
-                    <li>Or check resort recommendations at Park Royal</li>
-                </ul>
-                <p><strong>Worth the Drive:</strong></p>
-                <ul class="nested-list">
-                    <li><a href="https://www.google.com/maps/search/?api=1&query=Wilo+Eatery+Guaynabo+PR">Wilo Eatery</a> (30 min, $70-100/person) - contemporary Puerto Rican</li>
-                    <li><a href="https://www.google.com/maps/search/?api=1&query=Santaella+Restaurant+Santurce">Santaella</a> (40 min, $60-90/person) - trendy, excellent PR cuisine</li>
+                    <li>Olas Restaurant at Palmas del Mar</li>
+                    <li>Blue Hawaii - Caribbean fusion</li>
+                    <li>Wilo Eatery (30 min drive, worth it!)</li>
                 </ul>
             </div>
 
             <div class="info-box warning">
-                <p><strong>⚠️ Important:</strong> Gas up all 3 vehicles after dinner!</p>
+                <p><strong>⚠️ Gas up all 3 vehicles after dinner!</strong></p>
             </div>
         </div>
     </div>
@@ -535,125 +613,40 @@
             </div>
 
             <ul class="activity-list">
-                <li><span class="time">3:30 AM</span> Wake up (brutal!)</li>
-                <li><span class="time">4:00 AM</span> Leave for <a href="https://www.google.com/maps/search/?api=1&query=Luis+Munoz+Marin+International+Airport+SJU">SJU Airport</a></li>
+                <li><span class="time">3:30 AM</span> Wake up</li>
+                <li><span class="time">4:00 AM</span> Leave for SJU Airport</li>
                 <li><span class="time">6:45 AM</span> Takeoff</li>
             </ul>
         </div>
     </div>
 
-    <h2 class="section-title" id="costs">💰 Cost Summary</h2>
-    <div class="cost-summary">
-        <h3>Per Person Estimates</h3>
-        
-        <h4 style="margin: 20px 0 10px 0; font-size: 18px;">Activities:</h4>
-        <div class="cost-line">
-            <span>La Marquesa Park</span>
-            <span>$12</span>
-        </div>
-        <div class="cost-line">
-            <span>El Yunque</span>
-            <span>FREE</span>
-        </div>
-        <div class="cost-line">
-            <span>Beaches</span>
-            <span>FREE</span>
-        </div>
-        <div class="cost-line">
-            <span>El Morro Fort</span>
-            <span>$10</span>
-        </div>
-        <div class="cost-line">
-            <span>Catamaran (optional)</span>
-            <span>$111-194</span>
-        </div>
-
-        <h4 style="margin: 20px 0 10px 0; font-size: 18px;">Estimated Restaurant Costs:</h4>
-        <div class="cost-line">
-            <span>Sat - Kasalta Bakery (lunch)</span>
-            <span>$15-25</span>
-        </div>
-        <div class="cost-line">
-            <span>Sat - Granitos Bartola</span>
-            <span>$5-10</span>
-        </div>
-        <div class="cost-line">
-            <span>Sat - First dinner at resort</span>
-            <span>$30-50</span>
-        </div>
-        <div class="cost-line">
-            <span>Sun - Beach day meals at resort</span>
-            <span>$50-80</span>
-        </div>
-        <div class="cost-line">
-            <span>Mon - El Rancho de Apa (lunch)</span>
-            <span>$20-30</span>
-        </div>
-        <div class="cost-line">
-            <span>Tue - Luquillo Kiosks or resort</span>
-            <span>$15-25</span>
-        </div>
-        <div class="cost-line">
-            <span>Wed - Beach day / Kiosks</span>
-            <span>$15-25</span>
-        </div>
-        <div class="cost-line">
-            <span>Wed - Catamaran lunch (if doing catamaran)</span>
-            <span>Included</span>
-        </div>
-        <div class="cost-line">
-            <span>Thu - Old San Juan lunch (El Jibarito/Raíces/Manolín)</span>
-            <span>$20-35</span>
-        </div>
-        <div class="cost-line">
-            <span>Fri - Big farewell dinner</span>
-            <span>$50-100</span>
-        </div>
-        <div class="cost-line" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.3);">
-            <span><strong>Total Food (7 days)</strong></span>
-            <span><strong>$215-360</strong></span>
-        </div>
-
-        <div style="border-top: 2px solid rgba(255,255,255,0.3); margin-top: 20px; padding-top: 20px;">
-            <h4 style="font-size: 18px; margin-bottom: 15px;">Grand Totals Per Person:</h4>
-            <div class="cost-line" style="font-size: 18px; font-weight: 600;">
-                <span>Activities + Food (no catamaran)</span>
-                <span>$237-382</span>
-            </div>
-            <div class="cost-line" style="font-size: 18px; font-weight: 600;">
-                <span>Activities + Food (with catamaran)</span>
-                <span>$348-576</span>
-            </div>
-        </div>
-        
-        <p style="font-size: 14px; margin-top: 15px; opacity: 0.9;">💡 Note: Does not include groceries, snacks, drinks, tips, or other miscellaneous expenses. Add ~$100-150/person for those extras.</p>
-    </div>
-
-    <h2 class="section-title" id="foods">🍽️ Must-Try Foods</h2>
+    <h2 class="section-title">🍽️ Must-Try Foods</h2>
     <div class="info-banner">
         <ul class="nested-list">
             <li><strong>Mofongo</strong> - Mashed plantains with garlic</li>
             <li><strong>Tostones</strong> - Fried plantains</li>
-            <li><strong>Bacalitos</strong> - Crispy salt cod fritters - find them at kiosks and local spots!</li>
+            <li><strong>Bacalitos</strong> - Crispy salt cod fritters</li>
             <li><strong>Arroz con Gandules</strong> - Rice with pigeon peas</li>
-            <li><strong>Lechón</strong> - Roasted pork (at El Rancho de Apa!)</li>
-            <li><strong>Pasteles</strong> - Native-style tamales filled with chicken or pork (try at El Jibarito!)</li>
-            <li><strong>Granitos</strong> - <strong>⭐ EXCLUSIVE to Humacao!</strong> Rice flour fritters stuffed with cheese, shaped like rice grains. Getting them at Granitos Bartola on arrival day!</li>
+            <li><strong>Lechón</strong> - Roasted pork</li>
+            <li><strong>Alcapurrias de Jueyes</strong> - Land crab fritters (try at Carmín!)</li>
+            <li><strong>Granitos</strong> - Rice flour fritters (Humacao exclusive!)</li>
             <li><strong>Piña Coladas</strong> - Birthplace of the drink!</li>
             <li><strong>Mallorcas</strong> - Sweet breakfast pastries</li>
         </ul>
     </div>
 
-    <h2 class="section-title" id="reminders">📋 Quick Reminders</h2>
+    <h2 class="section-title">📋 Quick Reminders</h2>
     <div class="checklist">
-        <div class="checklist-item" style="background-color: #ffe6e6; font-weight: 600;">⚠️ PEANUT ALLERGY in group - always check ingredients when ordering</div>
+        <div class="checklist-item" style="background-color: #ffe6e6; font-weight: 600;">⚠️ PEANUT ALLERGY in group - always check ingredients</div>
         <div class="checklist-item">☐ Have 3 rental vehicles confirmed</div>
+        <div class="checklist-item">☐ Decide Monday lunch: Carmín (authentic, farther) or Bebo's (closer, convenient)</div>
+        <div class="checklist-item">☐ Call chosen restaurant for Monday lunch reservation (18 people, ~1pm)</div>
+        <div class="checklist-item">☐ Buy La Marquesa tickets online (lamarquesapr.com)</div>
+        <div class="checklist-item">☐ Book Friday dinner for 18 people</div>
         <div class="checklist-item">☐ Download offline Google Maps</div>
         <div class="checklist-item">☐ Bring reef-safe sunscreen</div>
-        <div class="checklist-item">☐ Bring cash for kiosks</div>
-        <div class="checklist-item">☐ Create group coordination chat</div>
-        <div class="checklist-item">☐ Have credit cards ready for travel</div>
-        <div class="checklist-item">☐ Pack special needs items (crutches, pregnancy comfort)</div>
+        <div class="checklist-item">☐ Bring cash for kiosks and tips</div>
+        <div class="checklist-item">☐ Check El Yunque entry requirements</div>
     </div>
 
     <div class="footer">
