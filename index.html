@@ -368,6 +368,98 @@
             font-size: 28px;
             margin: 10px 0;
         }
+        .quick-nav {
+            background: white;
+            margin: 20px 15px;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            overflow: hidden;
+        }
+        .quick-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            user-select: none;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: background 0.2s ease;
+        }
+        .quick-nav-header:hover {
+            background: #e9ecef;
+        }
+        .quick-nav h3 {
+            font-size: 16px;
+            margin: 0;
+            color: #667eea;
+        }
+        .nav-toggle {
+            font-size: 20px;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        .nav-toggle.collapsed {
+            transform: rotate(-90deg);
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            padding: 15px 20px;
+            max-height: 500px;
+            opacity: 1;
+            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+        }
+        .nav-links.collapsed {
+            max-height: 0;
+            opacity: 0;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+        .nav-link {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+        .nav-link:hover {
+            background: #764ba2;
+        }
+        .nav-link:active {
+            background: #764ba2;
+        }
+        body.dark-mode .quick-nav {
+            background: #1a1a1a;
+        }
+        body.dark-mode .quick-nav-header {
+            background: #262626;
+        }
+        body.dark-mode .quick-nav-header:hover {
+            background: #333333;
+        }
+        body.dark-mode .quick-nav h3 {
+            color: #a5b4fc;
+        }
+        body.dark-mode .nav-toggle {
+            color: #a5b4fc;
+        }
+        body.dark-mode .nav-link {
+            background: #667eea;
+            color: white;
+        }
+        body.dark-mode .nav-link:hover {
+            background: #764ba2;
+        }
     </style>
 </head>
 <body>
@@ -394,6 +486,27 @@
                 localStorage.setItem('darkMode', null);
             }
         }
+        
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            const navToggle = document.getElementById('navToggle');
+            
+            navLinks.classList.toggle('collapsed');
+            navToggle.classList.toggle('collapsed');
+            
+            // Save state
+            if (navLinks.classList.contains('collapsed')) {
+                localStorage.setItem('navCollapsed', 'true');
+            } else {
+                localStorage.setItem('navCollapsed', 'false');
+            }
+        }
+        
+        // Check for saved nav state
+        if (localStorage.getItem('navCollapsed') === 'false') {
+            document.getElementById('navLinks').classList.remove('collapsed');
+            document.getElementById('navToggle').classList.remove('collapsed');
+        }
     </script>
     
     <div class="header">
@@ -409,7 +522,26 @@
         <div class="info-item" style="color: #d32f2f; font-weight: 600; margin-top: 10px;">⚠️ <strong>ALLERGY ALERT:</strong> One person has a peanut allergy - everyone be aware when ordering food!</div>
     </div>
 
-    <div class="day-card">
+    <div class="quick-nav">
+        <div class="quick-nav-header" onclick="toggleNav()">
+            <h3>📅 Quick Navigation</h3>
+            <span class="nav-toggle" id="navToggle">▼</span>
+        </div>
+        <div class="nav-links collapsed" id="navLinks">
+            <a href="#day-sat" class="nav-link">Sat - Arrival</a>
+            <a href="#day-sun" class="nav-link">Sun - Resort</a>
+            <a href="#day-mon" class="nav-link">Mon - Luquillo</a>
+            <a href="#day-tue" class="nav-link">Tue - El Yunque</a>
+            <a href="#day-wed" class="nav-link">Wed - La Marquesa</a>
+            <a href="#day-thu" class="nav-link">Thu - Seven Seas</a>
+            <a href="#day-fri" class="nav-link">Fri - Last Day</a>
+            <a href="#day-sat-dep" class="nav-link">Sat - Departure</a>
+            <a href="#must-try" class="nav-link">🍽️ Must-Try Foods</a>
+            <a href="#reminders" class="nav-link">📋 Reminders</a>
+        </div>
+    </div>
+
+    <div class="day-card" id="day-sat">
         <div class="day-header">SAT DEC 6 - ARRIVAL</div>
         <div class="day-content">
             <div class="flight-box">
@@ -450,7 +582,7 @@
         </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="day-sun">
         <div class="day-header">SUN DEC 7 - BEACH DAY</div>
         <div class="day-content">
             <ul class="activity-list">
@@ -461,7 +593,7 @@
         </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="day-mon">
         <div class="day-header">MON DEC 8 - LUQUILLO BEACH DAY</div>
         <div class="day-content">
             <div style="margin-bottom: 15px;">
@@ -508,7 +640,7 @@
         </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="day-tue">
         <div class="day-header">TUE DEC 9 - EL YUNQUE</div>
         <div class="day-content">
             <div style="margin-bottom: 15px;">
@@ -543,7 +675,7 @@
         </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="day-wed">
         <div class="day-header">WED DEC 10 - LA MARQUESA PARK & OLD SAN JUAN ✓</div>
         <div class="day-content">
             <div style="margin-bottom: 15px;">
@@ -562,7 +694,7 @@
         </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="day-thu">
         <div class="day-header">THU DEC 11 - SEVEN SEAS BEACH</div>
         <div class="day-content">
             <div style="margin-bottom: 15px;">
@@ -615,7 +747,7 @@
         </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="day-fri">
         <div class="day-header">FRI DEC 12 - BEACH & BIG DINNER</div>
         <div class="day-content">
             <ul class="activity-list">
@@ -641,7 +773,7 @@
         </div>
     </div>
 
-    <div class="day-card">
+    <div class="day-card" id="day-sat-dep">
         <div class="day-header">SAT DEC 13 - DEPARTURE</div>
         <div class="day-content">
             <div class="flight-box return">
@@ -660,7 +792,7 @@
         </div>
     </div>
 
-    <h2 class="section-title">🍽️ Must-Try Foods</h2>
+    <h2 class="section-title" id="must-try">🍽️ Must-Try Foods</h2>
     <div class="info-banner">
         <ul class="nested-list">
             <li><strong>Mofongo</strong> - Mashed plantains with garlic</li>
@@ -675,7 +807,7 @@
         </ul>
     </div>
 
-    <h2 class="section-title">📋 Quick Reminders</h2>
+    <h2 class="section-title" id="reminders">📋 Quick Reminders</h2>
     <div class="checklist">
         <div class="checklist-item" style="background-color: #ffe6e6; font-weight: 600;">⚠️ PEANUT ALLERGY in group - always check ingredients</div>
         <div class="checklist-item">☐ Have 3 rental vehicles confirmed</div>
